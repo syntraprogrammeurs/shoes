@@ -1,0 +1,105 @@
+/* Alleen aanvullingen op Bootstrap. De layout gebruikt het Bootstrap-grid. */
+:root {
+  --shoe-orange: #fa5708;
+  --shoe-ink: #30312e;
+  --shoe-heading: "Oswald", "Arial Narrow", sans-serif;
+}
+
+body {
+  color: var(--shoe-ink);
+  font-family: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+  font-size: 14px;
+}
+
+h1, h2, h3, .navbar-nav, .control-label, summary, .btn-orange, .product-type, .color-count {
+  font-family: var(--shoe-heading);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+h1 { font-size: 26px; white-space: nowrap; }
+.section-heading { font-size: 18px; }
+.text-orange, .review-link, .review-link:hover { color: var(--shoe-orange); }
+
+/* Header: klein logo links, menu in het midden, zoekveld rechts. */
+#site-header .navbar-brand { width: 98px; min-height: 72px; border-right: 6px solid var(--shoe-orange); }
+#site-header .navbar-nav { font-size: 15px; }
+#site-header .nav-link { color: #464744; font-family: var(--shoe-heading); text-transform: uppercase; }
+#site-header .nav-link.active, #site-header .nav-link:hover { color: var(--shoe-orange); }
+#search-form { width: 180px; }
+#search-input { min-width: 0; padding: 4px 8px; font-size: 12px; background: transparent; }
+
+/* Linkerkolom. */
+.product-type { font-size: 12px; }
+.style-number { font-size: 12px; }
+.product-description, #product-details p { font-size: 12px; line-height: 1.45; }
+#product-details summary { list-style: none; cursor: pointer; font-size: 14px; line-height: 1.35; }
+#product-details summary::-webkit-details-marker { display: none; }
+#product-details details[open] summary { color: var(--shoe-orange); margin-bottom: 5px; }
+#product-details p { margin-bottom: 14px; }
+
+/* Galerij: vaste beeldverhouding voorkomt verspringen tussen kleuren. */
+.shoe-stage { aspect-ratio: 1.92; padding: 0 55px 55px; }
+.main-shoe { width: 430px; height: auto; max-height: 290px; object-fit: contain; }
+.carousel-control-prev, .carousel-control-next { width: 8%; bottom: 45px; }
+.carousel-control-prev-icon, .carousel-control-next-icon { width: 26px; height: 26px; }
+.carousel-indicators { margin-bottom: 13px; gap: 7px; }
+.carousel-indicators [data-bs-target] { width: 10px; height: 10px; border-radius: 50%; border: 0; margin: 0; background-color: #bfc0bd; opacity: .7; }
+.carousel-indicators .active { background-color: #242723; opacity: 1; }
+.color-option { width: 62px; height: 62px; padding: 4px; border: 1px solid #e0e0e0; background: #f6f6f6; flex-shrink: 0; }
+.color-option img { width: 100%; height: auto; max-height: 42px; object-fit: contain; mix-blend-mode: multiply; }
+.color-option.active { border-color: var(--shoe-orange); box-shadow: 0 0 0 3px white inset; }
+.custom-option { font-family: var(--shoe-heading); font-size: 10px; line-height: 1.05; text-transform: uppercase; }
+.color-wheel { width: 19px; height: 19px; border-radius: 50%; background: conic-gradient(#ed58b5, #7658ef, #18c7e5, #2dbf69, #ffe500, #ff713a, #ed58b5); border: 1px solid #fff; }
+.color-wheel::after { content: ""; display: block; width: 10px; height: 10px; margin: 3.5px; background: #f6f6f6; border-radius: 50%; }
+.btn-icon { border: 0; color: #4b4c49; }
+.btn-icon[aria-pressed="true"] { color: var(--shoe-orange); }
+.btn-icon[aria-pressed="true"] svg { fill: #ffe9df; }
+
+/* Koopbalk. Bootstrap verzorgt padding, afronding en flex-wrap. */
+.control-label { font-size: 13px; }
+#purchase-form .form-select { width: 64px; padding: 7px 24px 7px 10px; background-position: right 7px center; border-color: #999; font-size: 13px; }
+#price { font-size: 20px; font-weight: 600; }
+.btn-orange { --bs-btn-bg: var(--shoe-orange); --bs-btn-border-color: var(--shoe-orange); --bs-btn-color: white; --bs-btn-hover-bg: #d94600; --bs-btn-hover-color: white; --bs-btn-hover-border-color: #d94600; --bs-btn-active-bg: #c83f00; --bs-btn-active-color: white; --bs-btn-active-border-color: #c83f00; font-size: 16px; }
+.stars { font-size: 22px; letter-spacing: -2px; vertical-align: middle; }
+.shipping-note { color: #777; font-size: 14px; }
+.shipping-note .btn { font-size: 12px; padding: 2px 12px; color: #555; }
+
+/* Vier compacte productkaarten zoals in de referentie. */
+#recommendations .card { border-color: #f0f0f0; }
+#recommendations .card img { aspect-ratio: 1; object-fit: contain; padding: 8px; background: #f6f6f6; }
+.card-body { font-size: 12px; line-height: 1.3; }
+.color-count { margin-bottom: 8px; font-size: 12px; }
+.card-title { font-size: 12px; margin-bottom: 2px; }
+.card-category { font-size: 11px; text-transform: uppercase; font-style: italic; margin-bottom: 0; }
+footer { font-size: 11px; }
+:focus-visible { outline: 2px solid var(--shoe-orange); outline-offset: 4px; }
+
+/* Desktop: houd de contentbreedte van de 1280px-referentie aan. */
+@media (min-width: 1200px) {
+  .container { max-width: 1124px; }
+  #product-details, .product-description { max-width: 218px; }
+  #recommendations { margin-top: 26px !important; }
+}
+
+/* Tablet en mobiel: geen horizontale scrollbar of verkleinde desktop. */
+@media (max-width: 991.98px) {
+  #main-menu { padding: 16px 24px; border-top: 1px solid #eee; }
+  #search-form { width: 100%; max-width: 320px; margin-top: 12px; }
+  #product-details { max-width: 600px; }
+  .product-description, #product-details p { font-size: 15px; }
+  .shoe-stage { aspect-ratio: 1.8; }
+  h1 { white-space: normal; }
+}
+
+@media (max-width: 575.98px) {
+  .shoe-stage { aspect-ratio: 1; padding: 0 22px 35px; }
+  .color-option { width: 46px; height: 46px; }
+  .color-wheel { width: 15px; height: 15px; }
+  .color-wheel::after { width: 8px; height: 8px; margin: 2.5px; }
+  .custom-option { font-size: 8px; }
+  #purchase-form { row-gap: 16px !important; }
+  #recommendations .card-title { font-size: 16px; }
+  #recommendations .card-category, #recommendations .card-body { font-size: 14px; }
+  #recommendations .card img { max-height: 145px; object-fit: contain; background: #f6f6f6; }
+}

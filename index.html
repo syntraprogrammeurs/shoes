@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nike Air Force 1 — Bootstrap exercise</title>
+  <meta name="description" content="An educational Bootstrap recreation of a Nike Air Force 1 product page. Not an official store.">
+  <link rel="icon" href="img/nike-logo.png">
+  <!-- Eerst Bootstrap, daarna onze eigen CSS. Geen npm of build nodig. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Roboto+Condensed:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <a class="visually-hidden-focusable p-3" href="#product">Skip to product</a>
+
+  <!-- HEADER: Bootstrap navbar wordt op mobiel een uitklapmenu. -->
+  <header id="site-header" class="border-bottom">
+    <nav class="navbar navbar-expand-lg py-0" aria-label="Main navigation">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand d-flex align-items-center justify-content-center m-0" href="index.html" aria-label="Nike exercise home">
+          <img src="img/nike-logo.png" width="64" height="32" alt="Nike">
+        </a>
+        <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="main-menu">
+          <ul class="navbar-nav mx-auto gap-lg-3">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#product">Men</a></li>
+            <li class="nav-item"><button class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#demo-modal">Women</button></li>
+            <li class="nav-item"><button class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#demo-modal">Boys</button></li>
+            <li class="nav-item"><button class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#demo-modal">Girls</button></li>
+            <li class="nav-item"><button class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#customize-modal">Customize</button></li>
+          </ul>
+          <form id="search-form" class="d-flex align-items-center border rounded-pill me-lg-3" role="search">
+            <svg class="ms-2 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><circle cx="10" cy="10" r="6"></circle><path d="m15 15 6 6"></path></svg>
+            <label class="visually-hidden" for="search-input">Search recommendations</label>
+            <input id="search-input" class="form-control border-0 rounded-pill shadow-none" type="search" placeholder="Search">
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container py-4">
+    <!-- PRODUCT: 3/12 voor tekst, 9/12 voor de galerij. -->
+    <section id="product" class="row gx-xl-5" aria-labelledby="product-title">
+      <div class="col-lg-3">
+        <h1 id="product-title" class="mb-1">Nike Air Force 1</h1>
+        <p class="product-type fst-italic mb-2">Men’s shoe</p>
+        <p class="style-number mb-4">Style: 488298-160</p>
+
+        <h2 class="section-heading mb-1">Legendary style, refined</h2>
+        <p class="product-description mb-3">The legend lives on in the Nike Air Force 1 Men’s Shoe, a low-cut take on the iconic AF-1 blending classic court style and striking color contrast.</p>
+
+        <!-- Native details/summary: uitklappen zonder eigen JavaScript. -->
+        <div id="product-details">
+          <details name="benefits" open>
+            <summary>Durable</summary>
+            <p>The leather upper includes strategically placed overlays for added premium durability, fit and support. Perforations enhance ventilation to help keep feet dry and comfortable.</p>
+          </details>
+          <details name="benefits"><summary>Detailed</summary><p>Clean stitching and a low-cut profile give this classic sneaker its distinctive finish.</p></details>
+          <details name="benefits"><summary>Comfortable</summary><p>A padded collar and cushioned midsole provide comfort throughout the day.</p></details>
+          <details name="benefits"><summary>More benefits</summary><p>A durable rubber outsole provides traction. Traditional laces let you adjust the fit.</p></details>
+          <details name="benefits"><summary>Origins</summary><p>Originally introduced in 1982, the Air Force 1 brings basketball heritage to everyday style.</p></details>
+        </div>
+      </div>
+
+      <div class="col-lg-9 mt-4 mt-lg-0">
+        <div class="d-flex justify-content-end gap-2 mb-2">
+          <button id="share-button" class="btn btn-icon p-1" type="button" aria-label="Share this product"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M14 8H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-5M13 3l7 5-7 5V9C8 9 7 13 7 13s0-8 6-8Z"></path></svg></button>
+          <button id="save-button" class="btn btn-icon p-1" type="button" aria-label="Save product" aria-pressed="false"><svg width="16" height="18" viewBox="0 0 20 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 3h14v18l-7-5-7 5Z"></path></svg></button>
+        </div>
+
+        <div class="row g-0 align-items-start">
+          <div class="col-10 col-md-11">
+            <!-- Carousel gebruikt Bootstrap JS, zonder automatisch afspelen. -->
+            <div id="shoe-carousel" class="carousel slide" data-bs-theme="dark" aria-label="Shoe colors">
+              <div class="carousel-inner">
+                <div class="carousel-item active"><div class="shoe-stage d-flex align-items-center justify-content-center"><img src="img/air-force-white.png" class="main-shoe img-fluid" alt="White Nike Air Force 1, side view" width="750" height="383"></div></div>
+                <div class="carousel-item"><div class="shoe-stage d-flex align-items-center justify-content-center"><img src="img/air-force-navy.png" class="main-shoe img-fluid" alt="Navy Nike Air Force 1, side view" width="750" height="373"></div></div>
+                <div class="carousel-item"><div class="shoe-stage d-flex align-items-center justify-content-center"><img src="img/air-force-red.png" class="main-shoe img-fluid" alt="Red Nike Air Force 1, side view" width="750" height="392"></div></div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#shoe-carousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous color</span></button>
+              <button class="carousel-control-next" type="button" data-bs-target="#shoe-carousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next color</span></button>
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#shoe-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="White"></button>
+                <button type="button" data-bs-target="#shoe-carousel" data-bs-slide-to="1" aria-label="Navy"></button>
+                <button type="button" data-bs-target="#shoe-carousel" data-bs-slide-to="2" aria-label="Red"></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 col-md-1 d-flex flex-column align-items-center gap-2 pt-4" aria-label="Choose a color">
+            <button class="color-option rounded-circle active" type="button" data-bs-target="#shoe-carousel" data-bs-slide-to="0" aria-label="White" aria-pressed="true"><img src="img/air-force-white.png" alt="" width="52" height="32"></button>
+            <button class="color-option rounded-circle" type="button" data-bs-target="#shoe-carousel" data-bs-slide-to="1" aria-label="Navy" aria-pressed="false"><img src="img/air-force-navy.png" alt="" width="52" height="35"></button>
+            <button class="color-option rounded-circle" type="button" data-bs-target="#shoe-carousel" data-bs-slide-to="2" aria-label="Red" aria-pressed="false"><img src="img/air-force-red.png" alt="" width="52" height="34"></button>
+            <button class="color-option custom-option rounded-circle d-flex flex-column align-items-center justify-content-center" type="button" data-bs-toggle="modal" data-bs-target="#customize-modal"><span class="color-wheel mb-1" aria-hidden="true"></span><span>Design<br>your own</span></button>
+          </div>
+        </div>
+
+        <!-- AANKOOP: flex utilities laten de controls op kleine schermen omslaan. -->
+        <form id="purchase-form" class="d-flex flex-wrap align-items-center justify-content-center gap-3 mt-2">
+          <button class="btn btn-link text-secondary text-decoration-none p-0" type="button" data-bs-toggle="modal" data-bs-target="#size-modal">Size Chart</button>
+          <div class="d-flex align-items-center gap-2"><label for="size" class="control-label">Size</label><select id="size" class="form-select rounded-pill" required><option value="" selected>—</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option><option>45</option><option>46</option></select></div>
+          <div class="d-flex align-items-center gap-2"><label for="quantity" class="control-label">Qty</label><select id="quantity" class="form-select rounded-pill"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+          <strong id="price">$90</strong>
+          <button class="btn btn-orange rounded-pill px-4" type="submit">Add to cart <span class="ms-2" aria-hidden="true">❯</span></button>
+          <button class="btn btn-link review-link text-decoration-none p-0" type="button" data-bs-toggle="modal" data-bs-target="#reviews-modal" aria-label="Rated 3.5 out of 5, 211 reviews"><span class="stars" aria-hidden="true">★★★◐☆</span><small class="ms-1">(211)</small></button>
+        </form>
+        <p class="shipping-note text-center mt-3 mb-0">Join Nike+ for <span class="text-orange">Free Shipping</span> on every order, every time. <button class="btn btn-light rounded-pill btn-sm ms-2" type="button" data-bs-toggle="modal" data-bs-target="#shipping-modal">See Details <span aria-hidden="true">›</span></button></p>
+      </div>
+    </section>
+
+    <!-- AANBEVELINGEN: 1 kolom mobiel, 2 op tablet, 4 op desktop. -->
+    <section id="recommendations" class="mt-4 pt-2" aria-labelledby="recommendations-title">
+      <h2 id="recommendations-title" class="section-heading mb-3">You may also like</h2>
+      <div id="recommendation-list" class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+        <div class="col" data-product="kobe mentality 2 red basketball"><article class="card rounded-0 h-100"><div class="row g-0 align-items-center h-100"><div class="col-5"><img src="img/kobe-red.png" class="img-fluid w-100" alt="Red and black Kobe Mentality 2 basketball shoe" width="112" height="112"></div><div class="col-7"><div class="card-body px-3 py-2"><p class="color-count">3 colors</p><h3 class="card-title">Kobe Mentality 2</h3><p class="card-category">Men’s basketball shoe</p><p class="mb-0">$100</p></div></div></div></article></div>
+        <div class="col" data-product="kobe mentality 2 black basketball"><article class="card rounded-0 h-100"><div class="row g-0 align-items-center h-100"><div class="col-5"><img src="img/kobe-black.png" class="img-fluid w-100" alt="Black Kobe Mentality 2 basketball shoe" width="112" height="112"></div><div class="col-7"><div class="card-body px-3 py-2"><p class="color-count">3 colors</p><h3 class="card-title">Kobe Mentality 2</h3><p class="card-category">Men’s basketball shoe</p><p class="mb-0">$100</p></div></div></div></article></div>
+        <div class="col" data-product="nike air force 1 black"><article class="card rounded-0 h-100"><div class="row g-0 align-items-center h-100"><div class="col-5"><img src="img/air-force-black.png" class="img-fluid w-100" alt="Black Nike Air Force 1" width="112" height="112"></div><div class="col-7"><div class="card-body px-3 py-2"><h3 class="card-title">Nike Air Force 1</h3><p class="card-category">Men’s shoe</p><p class="mb-0">$90</p></div></div></div></article></div>
+        <div class="col" data-product="nike air force 1 07 lv8 black white"><article class="card rounded-0 h-100"><div class="row g-0 align-items-center h-100"><div class="col-5"><img src="img/air-force-lv8.png" class="img-fluid w-100" alt="Black Nike Air Force 1 07 LV8 with crocodile texture" width="112" height="112"></div><div class="col-7"><div class="card-body px-3 py-2"><p class="color-count">2 colors</p><h3 class="card-title">Nike Air Force 1 07 LV8</h3><p class="card-category">Men’s shoe</p><p class="mb-0">$100</p></div></div></div></article></div>
+      </div>
+      <p id="search-message" class="text-secondary mt-3" role="status" hidden></p>
+    </section>
+  </main>
+  <footer class="container text-end py-3"><small class="text-secondary">Educational recreation · Not an official Nike store</small></footer>
+
+  <!-- BOOTSTRAP MODALS: aanvullende info blijft buiten de hoofdlayout. -->
+  <div class="modal fade" id="size-modal" tabindex="-1" aria-labelledby="size-modal-title" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title fs-5" id="size-modal-title">Size chart</h2><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>Demo size selector: EU 39–46. For a real purchase, consult the manufacturer’s size chart.</p><p class="mb-0">Select your EU size in the product form before adding the shoes to the demo cart.</p></div></div></div></div>
+  <div class="modal fade" id="shipping-modal" tabindex="-1" aria-labelledby="shipping-modal-title" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title fs-5" id="shipping-modal-title">Shipping details</h2><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">The shipping offer is part of the reference design. This educational page does not sell or ship products.</div></div></div></div>
+  <div class="modal fade" id="reviews-modal" tabindex="-1" aria-labelledby="reviews-modal-title" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title fs-5" id="reviews-modal-title">Product reviews</h2><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">The rating and review count reproduce the supplied design. No live customer reviews are connected.</div></div></div></div>
+  <div class="modal fade" id="customize-modal" tabindex="-1" aria-labelledby="customize-modal-title" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title fs-5" id="customize-modal-title">Design your own</h2><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">Use the three color thumbnails to preview this demo. A custom shoe designer is not included in this exercise.</div></div></div></div>
+  <div class="modal fade" id="demo-modal" tabindex="-1" aria-labelledby="demo-modal-title" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title fs-5" id="demo-modal-title">Classroom demo</h2><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">This project contains one product detail page. The other store categories are not part of the exercise.</div></div></div></div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3"><div id="feedback-toast" class="toast" role="status" aria-live="polite" aria-atomic="true"><div class="toast-header"><strong class="me-auto">Shoes · classroom demo</strong><button class="btn-close" type="button" data-bs-dismiss="toast" aria-label="Close"></button></div><div id="feedback-text" class="toast-body"></div></div></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <!-- Kleine demo-interacties inline, zodat de gevraagde twee submappen volstaan. -->
+  <script>
+    const colors = ['White', 'Navy', 'Red'];
+    let selectedColor = 0;
+    const colorButtons = document.querySelectorAll('.color-option[data-bs-slide-to]');
+
+    function showFeedback(message) {
+      document.querySelector('#feedback-text').textContent = message;
+      bootstrap.Toast.getOrCreateInstance(document.querySelector('#feedback-toast')).show();
+    }
+
+    document.querySelector('#shoe-carousel').addEventListener('slid.bs.carousel', (event) => {
+      selectedColor = event.to;
+      colorButtons.forEach((button, index) => {
+        button.classList.toggle('active', index === selectedColor);
+        button.setAttribute('aria-pressed', String(index === selectedColor));
+      });
+    });
+
+    document.querySelector('#purchase-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const size = document.querySelector('#size').value;
+      const quantity = Number(document.querySelector('#quantity').value);
+      showFeedback(`${quantity} × Nike Air Force 1 · ${colors[selectedColor]} · EU ${size} · $${quantity * 90}. Added to the demo cart; no order has been placed.`);
+    });
+
+    document.querySelector('#quantity').addEventListener('change', (event) => {
+      document.querySelector('#price').textContent = '$' + Number(event.target.value) * 90;
+    });
+
+    document.querySelector('#save-button').addEventListener('click', (event) => {
+      const button = event.currentTarget;
+      const saved = button.getAttribute('aria-pressed') !== 'true';
+      button.setAttribute('aria-pressed', String(saved));
+      button.setAttribute('aria-label', saved ? 'Remove saved product' : 'Save product');
+      showFeedback(saved ? 'Product saved for this session.' : 'Product removed from saved items.');
+    });
+
+    document.querySelector('#share-button').addEventListener('click', async () => {
+      if (location.protocol === 'file:') {
+        showFeedback('This is a local exercise. Share the shoes folder or zip with your classmates.');
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(location.href);
+        showFeedback('Product link copied.');
+      } catch {
+        showFeedback('Copy the page address from your browser to share this product.');
+      }
+    });
+
+    function filterRecommendations() {
+      const query = document.querySelector('#search-input').value.trim().toLowerCase();
+      let count = 0;
+      document.querySelectorAll('[data-product]').forEach((card) => {
+        const match = card.dataset.product.includes(query);
+        card.hidden = !match;
+        if (match) count++;
+      });
+      const message = document.querySelector('#search-message');
+      message.hidden = !query;
+      message.textContent = count ? `${count} matching recommendation(s).` : 'No matching recommendations. Try “Kobe” or “Air Force”.';
+    }
+    document.querySelector('#search-input').addEventListener('input', filterRecommendations);
+    document.querySelector('#search-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      filterRecommendations();
+      document.querySelector('#recommendations').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
